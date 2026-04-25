@@ -1,11 +1,11 @@
-{
-  "name": "ai-english-backend",
-  "runtime": "python",
-  "buildCommand": "pip install -r requirements.txt",
-  "startCommand": "python main.py",
-  "envVars": {
-    "DASHSCOPE_API_KEY": {
-      "sync": false
-    }
-  }
-}
+version: '1'
+services:
+  web:
+    type: web
+    dockerfile_path: Dockerfile
+    env_vars:
+      - key: DASHSCOPE_API_KEY
+        sync: false
+    build_command: ''
+    start_command: ''
+    health_check_path: /
