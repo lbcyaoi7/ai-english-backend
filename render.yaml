@@ -2,10 +2,11 @@ version: '1'
 services:
   web:
     type: web
-    dockerfile_path: Dockerfile
+    env:
+      - PYTHON_VERSION=3.11.13
     env_vars:
       - key: DASHSCOPE_API_KEY
         sync: false
-    build_command: ''
-    start_command: ''
+    build_command: pip install -r requirements.txt
+    start_command: python main.py
     health_check_path: /
